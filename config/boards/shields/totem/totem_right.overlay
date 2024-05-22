@@ -10,7 +10,7 @@
     col-offset = <5>;
 };
 
- kscan0: kscan_0 {
+ &kscan0 {
     wakeup-source;
     col-gpios
         = <&xiao_d 8 GPIO_ACTIVE_HIGH>
