@@ -32,7 +32,7 @@
      kscan0: kscan {
          compatible = "zmk,kscan-gpio-matrix";
          wakeup-source;
-         label = "KSCAN";
+         //label = "KSCAN";
          diode-direction = "col2row"; 
         col-gpios
             = <&xiao_d 4 GPIO_ACTIVE_HIGH>
