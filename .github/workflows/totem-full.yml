@@ -9,5 +9,5 @@ jobs:
     secrets: inherit
     with:
       board: '["seeeduino_xiao_ble"]'
-      shield: '["totem_left","totem_right","totem_dongle","settings_reset"]'
+      shield: '["totem_left","totem_right","totem_dongle dongle_display","settings_reset"]'
       # shield: '["totem_dongle"]'
