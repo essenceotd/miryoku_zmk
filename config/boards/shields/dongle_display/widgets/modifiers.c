@@ -42,6 +42,27 @@ struct modifier_symbol ms_shift = {
     .symbol_dsc = &shift_icon,
 };
 
+#if IS_ENABLED(CONFIG_ZMK_DONGLE_DISPLAY_MAC_MODIFIERS)
+LV_IMG_DECLARE(opt_icon);
+struct modifier_symbol ms_opt = {
+    .modifier = MOD_LALT | MOD_RALT,
+    .symbol_dsc = &opt_icon,
+};
+
+LV_IMG_DECLARE(cmd_icon);
+struct modifier_symbol ms_cmd = {
+    .modifier = MOD_LGUI | MOD_RGUI,
+    .symbol_dsc = &cmd_icon,
+};
+
+struct modifier_symbol *modifier_symbols[] = {
+    // this order determines the order of the symbols
+    &ms_control,
+    &ms_opt,
+    &ms_cmd,
+    &ms_shift
+};
+#else
 LV_IMG_DECLARE(alt_icon);
 struct modifier_symbol ms_alt = {
     .modifier = MOD_LALT | MOD_RALT,
@@ -61,6 +82,7 @@ struct modifier_symbol *modifier_symbols[] = {
     &ms_control,
     &ms_shift
 };
+#endif
 
 #define NUM_SYMBOLS (sizeof(modifier_symbols) / sizeof(struct modifier_symbol *))
 
@@ -74,7 +96,7 @@ static void move_object_y(void *obj, int32_t from, int32_t to) {
     lv_anim_t a;
     lv_anim_init(&a);
     lv_anim_set_var(&a, obj);
-    lv_anim_set_time(&a, 200); // will be replaced with lv_anim_set_duration
+    lv_anim_set_duration(&a, 200);
     lv_anim_set_exec_cb(&a, anim_y_cb);
     lv_anim_set_path_cb(&a, lv_anim_path_overshoot);
     lv_anim_set_values(&a, from, to);
@@ -122,7 +144,7 @@ int zmk_widget_modifiers_init(struct zmk_widget_modifiers *widget, lv_obj_t *par
     lv_style_init(&style_line);
     lv_style_set_line_width(&style_line, 2);
 
-    static const lv_point_t selection_line_points[] = { {0, 0}, {SIZE_SYMBOLS, 0} };
+    static const lv_point_precise_t selection_line_points[] = { {0, 0}, {SIZE_SYMBOLS, 0} };
 
     for (int i = 0; i < NUM_SYMBOLS; i++) {
         modifier_symbols[i]->symbol = lv_img_create(widget->obj);
