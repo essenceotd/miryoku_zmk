@@ -9,5 +9,6 @@ jobs:
     secrets: inherit
     with:
       board: '["xiao_ble"]'
-      shield: '["totem_left","totem_right","totem_dongle dongle_display","settings_reset"]'
+      shield: '["totem_left","totem_right","totem_dongle prospecto_adapters","settings_reset"]'
+      modules: '["carrefinho/prospector-zmk-module/main"]'
       # shield: '["totem_dongle"]'
