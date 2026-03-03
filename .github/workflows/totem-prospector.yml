@@ -8,8 +8,8 @@ jobs:
     uses: ./.github/workflows/main.yml
     secrets: inherit
     with:
-      board: '["seeeduino_xiao_ble"]'
+      board: '["xiao_ble"]'
       shield: '["totem_left","totem_right","totem_dongle prospector_adapter","settings_reset"]'
-      modules: '["carrefinho/prospector-zmk-module/main"]'
-      branches: '["zmkfirmware/zmk/v0.3.0"]'
+      modules: '["carrefinho/prospector-zmk-module/feat/new-status-screens"]'
+      branches: '["zmkfirmware/zmk/main"]'
       # shield: '["totem_dongle"]'
