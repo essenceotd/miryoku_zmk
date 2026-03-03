@@ -9,6 +9,7 @@
 / {
     chosen {
         zmk,kscan = &mock_kscan;
+        zephyr,display = &st7789;   // label provided by Prospector overlay
         wakeup-source;
     };
 
