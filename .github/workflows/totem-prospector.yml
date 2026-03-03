@@ -10,5 +10,5 @@ jobs:
     with:
       board: '["xiao_ble"]'
       shield: '["totem_left","totem_right","totem_dongle prospector_adapter","settings_reset"]'
-      # modules: '["carrefinho/prospector-zmk-module/feat/new-status-screens"]'
+      modules: '["essenceotd/prospector-zmk-module/feat/new-status-screens"]'
       # shield: '["totem_dongle"]'
