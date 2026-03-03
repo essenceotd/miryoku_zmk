@@ -1,0 +1,13 @@
+# Copyright 2022 Manna Harbour
+# https://github.com/manna-harbour/miryoku
+
+name: 'Totem Prospector'
+on: workflow_dispatch
+jobs:
+  build:
+    uses: ./.github/workflows/main.yml
+    secrets: inherit
+    with:
+      board: '["xiao_ble"]'
+      shield: '["totem_left","totem_right","totem_dongle dongle_display","settings_reset"]'
+      # shield: '["totem_dongle"]'
