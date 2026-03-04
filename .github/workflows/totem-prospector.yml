@@ -8,9 +8,8 @@ jobs:
     uses: ./.github/workflows/main.yml
     secrets: inherit
     with:
-      build_matrix_path: 'build.yaml'
-      # board: '["xiao_ble_zmk"]'
-      # shield: '["totem_left","totem_right","totem_dongle prospector_adapter","settings_reset"]'
+      board: '["xiao_ble//zmk"]'
+      shield: '["totem_left","totem_right","totem_dongle prospector_adapter","settings_reset"]'
       modules: '["carrefinho/prospector-zmk-module/feat/new-status-screens"]'
       branches: '["zmkfirmware/zmk/main"]'
       # shield: '["totem_dongle"]'
