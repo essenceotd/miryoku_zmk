@@ -46,3 +46,11 @@ void init_line_dsc(lv_draw_line_dsc_t *line_dsc, lv_color_t color, uint8_t width
     line_dsc->color = color;
     line_dsc->width = width;
 }
+
+void draw_image(lv_obj_t *canvas, int x, int y, const lv_image_dsc_t *img_dsc, lv_draw_image_dsc_t *draw_dsc) {
+    lv_layer_t layer;
+    lv_canvas_init_layer(canvas, &layer);
+    lv_area_t area = {x, y, x + img_dsc->header.w - 1, y + img_dsc->header.h - 1};
+    lv_draw_image(&layer, draw_dsc, &area);
+    lv_canvas_finish_layer(canvas, &layer);
+}
