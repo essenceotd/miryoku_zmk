@@ -9,12 +9,23 @@ void to_uppercase(char *str) {
     }
 }
 
+// void fill_background(lv_obj_t *canvas) {
+//     lv_draw_rect_dsc_t rect_black_dsc;
+//     rect_black_dsc.bg_color = lv_color_white();  // set background color to white
+//     init_rect_dsc(&rect_black_dsc, LVGL_BACKGROUND);
+
+//     lv_canvas_draw_rect(canvas, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, &rect_black_dsc);
+// }
+
 void fill_background(lv_obj_t *canvas) {
     lv_draw_rect_dsc_t rect_black_dsc;
-    rect_black_dsc.bg_color = lv_color_white();  // set background color to white
+    rect_black_dsc.bg_color = lv_color_white();
     init_rect_dsc(&rect_black_dsc, LVGL_BACKGROUND);
-
-    lv_canvas_draw_rect(canvas, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, &rect_black_dsc);
+    lv_layer_t layer;
+    lv_canvas_init_layer(canvas, &layer);
+    lv_area_t area = {0, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1};
+    lv_draw_rect(&layer, &rect_black_dsc, &area);
+    lv_canvas_finish_layer(canvas, &layer);
 }
 
 void init_label_dsc(lv_draw_label_dsc_t *label_dsc, lv_color_t color, const lv_font_t *font,
