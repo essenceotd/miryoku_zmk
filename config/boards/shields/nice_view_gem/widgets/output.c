@@ -32,7 +32,7 @@ static void draw_usb_connected(lv_obj_t *canvas) {
     lv_layer_t layer;
     lv_canvas_init_layer(canvas, &layer);
     lv_area_t area = {12, 140, SCREEN_WIDTH - 8, 160};
-    lv_draw_label(&layer, &label_dsc, &area, "USB", NULL);
+    lv_draw_label(&layer, &label_dsc, &area, "USB");
     lv_canvas_finish_layer(canvas, &layer);
 }
 
