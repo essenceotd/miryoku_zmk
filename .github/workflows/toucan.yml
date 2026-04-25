@@ -11,4 +11,4 @@ jobs:
       board: '["xiao_ble//zmk"]'
       shield: '["toucan_left rgbled_adapter nice_view_gem","toucan_right rgbled_adapter","settings_reset"]'
       modules: '["caksoylar/zmk-rgbled-widget/main"]'
-      branches: '["zmkfirmware/zmk/v03"]'
+      branches: '["zmkfirmware/zmk/v0.3"]'
