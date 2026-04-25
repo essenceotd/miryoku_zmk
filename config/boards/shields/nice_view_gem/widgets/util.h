@@ -38,3 +38,4 @@ void init_label_dsc(lv_draw_label_dsc_t *label_dsc, lv_color_t color, const lv_f
                     lv_text_align_t align);
 void draw_image(lv_obj_t *canvas, int x, int y, const lv_image_dsc_t *img_dsc, lv_draw_image_dsc_t *draw_dsc);
 void draw_text(lv_obj_t *canvas, int x, int y, int width, lv_draw_label_dsc_t *label_dsc, const char *text);
+void draw_rect(lv_obj_t *canvas, int x, int y, int width, int height, lv_draw_rect_dsc_t *rect_dsc);
