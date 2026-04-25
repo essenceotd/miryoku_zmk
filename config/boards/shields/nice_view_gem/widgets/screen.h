@@ -1,5 +1,4 @@
 #pragma once
-
 #include <lvgl.h>
 #include <zephyr/kernel.h>
 #include "util.h"
@@ -7,9 +6,9 @@
 struct zmk_widget_screen {
     sys_snode_t node;
     lv_obj_t *obj;
-    lv_color_t cbuf[SCREEN_WIDTH * SCREEN_HEIGHT];
-    lv_color_t cbuf2[SCREEN_WIDTH * SCREEN_HEIGHT];
-    lv_color_t cbuf3[SCREEN_WIDTH * SCREEN_HEIGHT];
+    uint8_t cbuf[LV_CANVAS_BUF_SIZE(SCREEN_WIDTH, SCREEN_HEIGHT, 1, LV_COLOR_FORMAT_I1)];
+    uint8_t cbuf2[LV_CANVAS_BUF_SIZE(SCREEN_WIDTH, SCREEN_HEIGHT, 1, LV_COLOR_FORMAT_I1)];
+    uint8_t cbuf3[LV_CANVAS_BUF_SIZE(SCREEN_WIDTH, SCREEN_HEIGHT, 1, LV_COLOR_FORMAT_I1)];
     struct status_state state;
 };
 
