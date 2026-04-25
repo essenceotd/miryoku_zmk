@@ -54,3 +54,12 @@ void draw_image(lv_obj_t *canvas, int x, int y, const lv_image_dsc_t *img_dsc, l
     lv_draw_image(&layer, draw_dsc, &area);
     lv_canvas_finish_layer(canvas, &layer);
 }
+
+void draw_text(lv_obj_t *canvas, int x, int y, int width, lv_draw_label_dsc_t *label_dsc, const char *text) {
+    label_dsc->text = text;
+    lv_layer_t layer;
+    lv_canvas_init_layer(canvas, &layer);
+    lv_area_t area = {x, y, x + width - 1, y + 20};
+    lv_draw_label(&layer, label_dsc, &area);
+    lv_canvas_finish_layer(canvas, &layer);
+}
