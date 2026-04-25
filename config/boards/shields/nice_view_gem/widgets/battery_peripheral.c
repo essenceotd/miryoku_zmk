@@ -12,7 +12,7 @@ LV_IMG_DECLARE(r_battery_10);
 
 
 static void draw_level_peripheral(lv_obj_t *canvas, const struct status_state *state) {
-    lv_draw_img_dsc_t img_dsc_r;
+    lv_draw_image_dsc_t img_dsc_r;
     lv_draw_img_dsc_init(&img_dsc_r);
 
     uint8_t level = state->battery_p;
