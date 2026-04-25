@@ -1,0 +1,7 @@
+# Copyright 2022 Manna Harbour
+# https://github.com/manna-harbour/miryoku
+
+outboard_repository=beekeeb/zmk-keyboard-toucan
+outboard_ref=master
+outboard_from=config/boards/shields/toucan
+outboard_to=boards/shields/toucan
