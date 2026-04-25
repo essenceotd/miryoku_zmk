@@ -1,13 +1,14 @@
 #include <zephyr/kernel.h>
 #include "profile.h"
+#include "util.h"
 
 LV_IMG_DECLARE(profiles);
 
 static void draw_inactive_profiles(lv_obj_t *canvas, const struct status_state *state) {
-    lv_draw_img_dsc_t img_dsc;
-    lv_draw_img_dsc_init(&img_dsc);
+    lv_draw_image_dsc_t  img_dsc;
+    lv_draw_image_dsc_init(&img_dsc);
 
-    lv_canvas_draw_img(canvas, 85, 143, &profiles, &img_dsc);
+    draw_img(canvas, 85, 143, &profiles, &img_dsc);
 }
 
 static void draw_active_profile(lv_obj_t *canvas, const struct status_state *state) {
