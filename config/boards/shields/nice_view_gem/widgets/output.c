@@ -29,31 +29,19 @@ LV_IMG_DECLARE(usb);
 static void draw_usb_connected(lv_obj_t *canvas) {
     lv_draw_label_dsc_t label_dsc;
     init_label_dsc(&label_dsc, LVGL_FOREGROUND, &quinquefive_8, LV_TEXT_ALIGN_LEFT);
-    lv_layer_t layer;
-    lv_canvas_init_layer(canvas, &layer);
-    lv_area_t area = {12, 140, SCREEN_WIDTH - 8, 160};
-    lv_draw_label(&layer, &label_dsc, &area, "USB");
-    lv_canvas_finish_layer(canvas, &layer);
+    draw_text(canvas, 12, 140, SCREEN_WIDTH - 8, &label_dsc, "USB");
 }
 
 static void draw_ble_disconnected(lv_obj_t *canvas) {
     lv_draw_label_dsc_t label_dsc;
     init_label_dsc(&label_dsc, LVGL_FOREGROUND, &quinquefive_8, LV_TEXT_ALIGN_LEFT);
-    lv_layer_t layer;
-    lv_canvas_init_layer(canvas, &layer);
-    lv_area_t area = {12, 140, SCREEN_WIDTH - 8, 160};
-    lv_draw_label(&layer, &label_dsc, &area, "NULL", NULL);
-    lv_canvas_finish_layer(canvas, &layer);
+    draw_text(canvas, 12, 140, SCREEN_WIDTH - 8, &label_dsc, "NULL");
 }
 
 static void draw_ble_connected(lv_obj_t *canvas) {
     lv_draw_label_dsc_t label_dsc;
     init_label_dsc(&label_dsc, LVGL_FOREGROUND, &quinquefive_8, LV_TEXT_ALIGN_LEFT);
-    lv_layer_t layer;
-    lv_canvas_init_layer(canvas, &layer);
-    lv_area_t area = {12, 140, SCREEN_WIDTH - 8, 160};
-    lv_draw_label(&layer, &label_dsc, &area, "BLE", NULL);
-    lv_canvas_finish_layer(canvas, &layer);
+    draw_text(canvas, 12, 140, SCREEN_WIDTH - 8, &label_dsc, "BLE");
 }
 
 void draw_output_status(lv_obj_t *canvas, const struct status_state *state) {
