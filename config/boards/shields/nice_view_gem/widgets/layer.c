@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "layer.h"
+#include "util.h"
 #include "../assets/custom_fonts.h"
 #include <zmk/physical_layouts.h>
 #include <zmk/keymap.h>
@@ -25,5 +26,5 @@ void draw_layer_status(lv_obj_t *canvas, const struct status_state *state) {
         layer_name = fallback_layer_name;
     }
 
-    lv_canvas_draw_text(canvas, 0, 70, SCREEN_WIDTH, &label_dsc, layer_name);
+    draw_text(canvas, 0, 70, SCREEN_WIDTH, &label_dsc, layer_name);
 }
