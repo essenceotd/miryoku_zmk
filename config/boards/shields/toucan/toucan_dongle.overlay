@@ -9,13 +9,22 @@
 / {
     chosen {
         zmk,kscan = &mock_kscan;
-        wakeup-source;
     };
 
-    mock_kscan: kscan_1 {
+    mock_kscan: mock_kscan_0 {
         compatible = "zmk,kscan-mock";
         columns = <0>;
         rows = <0>;
         events = <0>;
     };
+};
+
+/* Disable the real matrix kscan — dongle has no physical keys */
+&kscan_0 {
+    status = "disabled";
+};
+
+/* If trackpad SPI is defined in base shield and not valid on dongle */
+&spi0 {
+    status = "disabled";
 };
