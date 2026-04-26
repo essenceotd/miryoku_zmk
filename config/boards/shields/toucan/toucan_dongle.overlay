@@ -18,3 +18,11 @@
         events = <0>;
     };
 };
+
+/* Reference by path since the node has no label */
+&{/kscan_0} {
+    compatible = "zmk,kscan-mock";
+    columns = <0>;
+    rows = <0>;
+    events = <0>;
+};
