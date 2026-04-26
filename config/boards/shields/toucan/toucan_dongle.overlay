@@ -18,13 +18,3 @@
         events = <0>;
     };
 };
-
-/* Disable the real matrix kscan — dongle has no physical keys */
-&kscan_0 {
-    status = "disabled";
-};
-
-/* If trackpad SPI is defined in base shield and not valid on dongle */
-&spi0 {
-    status = "disabled";
-};
