@@ -3,6 +3,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "toucan-layouts.dtsi"
 #include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <behaviors/input_gestures_accel.dtsi>
 
 /* Do NOT include toucan.dtsi — its kscan0 GPIO matrix pins
    (gpio0 9, gpio0 10) conflict with prospector SPI MISO/MOSI */
@@ -46,21 +47,22 @@
         };
     };
 
-    zip_accel: zip_accel {
-        compatible = "zmk,input-processor-scaler";
-        #input-processor-cells = <2>;
-        type = <INPUT_EV_REL>;
-        codes = <INPUT_REL_X INPUT_REL_Y>;
-        track-remainders;
+    ptr_accel: ptr_accel {
+        compatible = "zmk,input-processor-accel";
+        #input-processor-cells = <0>;
+        input-type = <INPUT_EV_REL>;
+        scale-min = <1>;
+        scale-max = <6>;
+        threshold = <15>;
     };
 
     glidepoint_listener: glidepoint_listener {
         compatible = "zmk,input-listener";
         status = "okay";
         device = <&glidepoint_split>;
-        input-processors = <&zip_accel 4 1>;
+        input-processors = <&ptr_accel &zip_xy_scaler 250 100>;
         scroller {
-            layers = <4 5 6>;
+            layers = <5>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
                 &zip_scroll_scaler 1 5
