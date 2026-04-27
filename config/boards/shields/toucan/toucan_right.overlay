@@ -80,10 +80,7 @@
 
 &glidepoint_split {
     device = <&glidepoint>;
-    input-processors = <
-            &pointer_accel      // Acceleration processor
-            &zip_xy_transform
-        >;
+    input-processors = <&pointer_accel &zip_xy_transform>;
 
     // Optional
     // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
