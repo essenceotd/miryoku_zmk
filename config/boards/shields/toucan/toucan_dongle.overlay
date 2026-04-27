@@ -46,21 +46,19 @@
         };
     };
 
-    /* Custom high-range scaler — approximates acceleration by
-       amplifying movement; combine with low hardware sensitivity */
     zip_accel: zip_accel {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
         type = <INPUT_EV_REL>;
         codes = <INPUT_REL_X INPUT_REL_Y>;
-        track-remainders;    /* preserves sub-pixel movement for precision */
+        track-remainders;
     };
 
     glidepoint_listener: glidepoint_listener {
         compatible = "zmk,input-listener";
         status = "okay";
         device = <&glidepoint_split>;
-        input-processors = <&zip_accel 3 1>;
+        input-processors = <&zip_accel 4 1>;
         scroller {
             layers = <4 5 6>;
             input-processors = <
