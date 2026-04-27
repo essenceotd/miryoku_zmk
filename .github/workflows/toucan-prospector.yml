@@ -12,3 +12,14 @@ jobs:
       shield: '["toucan_left rgbled_adapter toucan_pet","toucan_right rgbled_adapter","toucan_dongle rgbled_adapter prospector_adapter", "settings_reset"]'
       modules: '["caksoylar/zmk-rgbled-widget/v0.3-branch geeksville/cirque-input-module/toucan carrefinho/prospector-zmk-module/main"]'
       branches: '["zmkfirmware/zmk/v0.3"]'
+
+  merge:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Merge firmware artifacts
+        uses: actions/upload-artifact/merge@v4
+        with:
+          name: toucan-prospector-firmware
+          pattern: '*'
+          delete-merged: true
