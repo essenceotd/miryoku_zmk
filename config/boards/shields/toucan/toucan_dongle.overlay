@@ -48,12 +48,13 @@
     };
 
     ptr_accel: ptr_accel {
-        compatible = "zmk,input-processor-acceleration";
-        #input-processor-cells = <0>;
-        input-type = <2>;
-        scale-min = <1>;
-        scale-max = <6>;
-        threshold = <15>;
+        input-type = <INPUT_EV_REL>;  // For relative input devices
+        track-remainders;             // Accumulate fractional movements
+        min-factor = <800>;          // 0.8x at very slow speeds
+        max-factor = <3000>;         // 3.0x at fast speeds
+        speed-threshold = <1200>;     // 1200 counts/sec for 1x
+        speed-max = <6000>;          // 6000 counts/sec for max accel
+        acceleration-exponent = <2>;  // Quadratic acceleration curve
     };
 
     glidepoint_listener: glidepoint_listener {
