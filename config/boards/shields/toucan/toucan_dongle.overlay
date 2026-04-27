@@ -43,7 +43,6 @@
         glidepoint_split: glidepoint_split@0 {
             compatible = "zmk,input-split";
             reg = <0>;
-            sensitivity = "2x";
         };
     };
 
