@@ -9,6 +9,6 @@ jobs:
     secrets: inherit
     with:
       board: '["seeeduino_xiao_ble"]'
-      shield: '["toucan_left rgbled_adapter toucan_pet","toucan_right rgbled_adapter","toucan_dongle rgbled_adapter prospector_adapter", "settings_reset"]'
+      shield: '["toucan_left rgbled_adapter toucan_pet","toucan_right rgbled_adapter","toucan_dongle prospector_adapter", "settings_reset"]'
       modules: '["caksoylar/zmk-rgbled-widget/v0.3-branch geeksville/cirque-input-module/toucan carrefinho/prospector-zmk-module/main oleksandrmaslov/zmk-pointing-acceleration/main"]'
       branches: '["zmkfirmware/zmk/v0.3"]'
