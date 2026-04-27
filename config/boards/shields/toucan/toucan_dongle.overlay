@@ -49,7 +49,7 @@
     pointing_accel: pointing_accel {
         compatible = "zmk,input-processor-accel";
         #input-processor-cells = <0>;
-        input-type = <INPUT_EV_REL>;    /* ← add this */
+        input-type = <2>;    /* INPUT_EV_REL = 0x02 */
         scale-min = <1>;
         scale-max = <6>;
         threshold = <15>;
