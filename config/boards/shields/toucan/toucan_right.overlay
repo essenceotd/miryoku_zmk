@@ -61,7 +61,7 @@
         spi-max-frequency = <1000000>;
         status = "okay";
         dr-gpios = <&gpio0 2 (GPIO_ACTIVE_HIGH)>;
-        sensitivity = "4x";
+        sensitivity = "3x";
         x-invert;
 	    //sleep;
     };
