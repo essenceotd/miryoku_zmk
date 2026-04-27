@@ -48,7 +48,7 @@
     };
 
     ptr_accel: ptr_accel {
-        compatible = "zmk,input-processor-accel";
+        compatible = "zmk,input-processor-acceleration";
         #input-processor-cells = <0>;
         input-type = <2>;
         scale-min = <1>;
