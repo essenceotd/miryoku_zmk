@@ -1,7 +1,6 @@
 #include "toucan.dtsi"
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
-#include <dt-bindings/zmk/accel.h>
 #include <behaviors/input_processor_sigmoid_accel.dtsi>
 
 &xiao_i2c {
