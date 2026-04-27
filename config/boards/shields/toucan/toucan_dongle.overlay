@@ -43,6 +43,7 @@
         glidepoint_split: glidepoint_split@0 {
             compatible = "zmk,input-split";
             reg = <0>;
+            sensitivity = "2x";
         };
     };
 
@@ -53,14 +54,14 @@
         #input-processor-cells = <2>;
         type = <INPUT_EV_REL>;
         codes = <INPUT_REL_X INPUT_REL_Y>;
-        track-remainders;
+        track-remainders;    /* preserves sub-pixel movement for precision */
     };
 
     glidepoint_listener: glidepoint_listener {
         compatible = "zmk,input-listener";
         status = "okay";
         device = <&glidepoint_split>;
-        input-processors = <&zip_accel 3 1 &zip_xy_scaler 250 100>;
+        input-processors = <&zip_accel 3 1>;
         scroller {
             layers = <4 5 6>;
             input-processors = <
