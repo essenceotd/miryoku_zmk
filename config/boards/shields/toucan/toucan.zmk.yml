@@ -11,3 +11,4 @@ features:
 siblings:
   - toucan_left
   - toucan_right
+  - toucan_dongle
