@@ -2,7 +2,6 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "toucan-layouts.dtsi"
-#include <dt-bindings/zmk/accel.h>
 
 /* Do NOT include toucan.dtsi — its kscan0 GPIO matrix pins
    (gpio0 9, gpio0 10) conflict with prospector SPI MISO/MOSI */
