@@ -3,6 +3,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "toucan-layouts.dtsi"
 #include <behaviors/input_gestures_accel.dtsi>
+#include <dt-bindings/zmk/accel.h>
 
 /* Do NOT include toucan.dtsi — its kscan0 GPIO matrix pins
    (gpio0 9, gpio0 10) conflict with prospector SPI MISO/MOSI */
@@ -46,27 +47,18 @@
         };
     };
 
-    pointing_accel: pointing_accel {
-        compatible = "zmk,input-processor-accel";
-        #input-processor-cells = <0>;
-        input-type = <2>;    /* INPUT_EV_REL = 0x02 */
-        scale-min = <1>;
-        scale-max = <6>;
-        threshold = <15>;
-    };
-
-    glidepoint_listener: glidepoint_listener {
-        compatible = "zmk,input-listener";
-        status = "okay";
-        device = <&glidepoint_split>;
-        input-processors = <&pointing_accel &zip_xy_scaler 250 100>;
-        scroller {
-            layers = <1 2>;
-            input-processors = <
-                &zip_xy_to_scroll_mapper
-                &zip_scroll_scaler 1 5
-                &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
-            >;
-        };
-    };
+   glidepoint_listener: glidepoint_listener {
+       compatible = "zmk,input-listener";
+       status = "okay";
+       device = <&glidepoint_split>;
+       input-processors = <&zip_accel &zip_xy_scaler 250 100>;
+       scroller {
+           layers = <1 2>;
+           input-processors = <
+               &zip_xy_to_scroll_mapper
+               &zip_scroll_scaler 1 5
+               &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
+           >;
+       };
+   };
 };
