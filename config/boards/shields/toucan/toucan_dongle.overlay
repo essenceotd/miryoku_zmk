@@ -62,11 +62,11 @@
         device = <&glidepoint_split>;
         input-processors = <&zip_accel 3 1 &zip_xy_scaler 250 100>;
         scroller {
-            layers = <1 2>;
+            layers = <4 5 6>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
                 &zip_scroll_scaler 1 5
-                &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
+                &zip_scroll_transform INPUT_TRANSFORM_X_INVERT INPUT_TRANSFORM_Y_INVERT
             >;
         };
     };
