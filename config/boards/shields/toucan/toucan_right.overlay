@@ -1,6 +1,8 @@
 #include "toucan.dtsi"
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
+#include <dt-bindings/zmk/accel.h>
+#include <behaviors/input_processor_sigmoid_accel.dtsi>
 
 &xiao_i2c {
     status = "disabled";
@@ -67,9 +69,16 @@
     };
 };
 
+&sigmoid_accel {
+    min-scale = <50>;     // 0.5x at slow speeds
+    max-scale = <400>;    // 4.0x at fast speeds
+    threshold = <35>;     // velocity where curve centers
+    steepness = <20>;     // transition sharpness
+};
+
 &glidepoint_split {
     device = <&glidepoint>;
-    input-processors = <&zip_accel>;
+    input-processors = <&sigmoid_accel>, <&zip_xy_scaler 2 1>;
 
     // Optional
     // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
