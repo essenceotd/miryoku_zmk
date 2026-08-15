@@ -70,11 +70,13 @@
         single-tap;
         press-and-hold;
 
-        // Axis orientation is chip-specific and unverified on this exact board;
-        // if the cursor tracks the wrong way after flashing, uncomment as needed:
-        // switch-xy;
-        // invert-x;
-        // invert-y;
+        // Raw axes come in swapped/rotated relative to the case: left was
+        // tracking as up, up was tracking as right. switch-xy realigns the
+        // axes; invert-y corrects the resulting up/down direction.
+        switch-xy;
+        invert-y;
+        // If left/right end up reversed instead after this, swap invert-y
+        // for invert-x.
     };
 };
 
