@@ -85,6 +85,12 @@
         invert-scroll-y;
         // If this ends up backwards instead, swap invert-scroll-y for
         // invert-scroll-x.
+
+        // Minimum finger travel (in the chip's internal units) before it
+        // commits to a scroll gesture; unset, this was using the chip's
+        // factory default, which required a large initial movement before
+        // scrolling would start.
+        scroll-initial-distance = <10>;
     };
 };
 
