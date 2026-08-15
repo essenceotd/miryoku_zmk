@@ -75,6 +75,16 @@
         // axes; left/right came out correct on its own, but up/down was
         // still inverted with invert-y set, so it's left off.
         switch-xy;
+
+        // Native two-finger scroll gesture. Without `scroll` enabled here,
+        // the driver never touches these registers at all, so the chip was
+        // scrolling on its uncustomized factory default (too fast, wrong
+        // direction) regardless of anything set elsewhere.
+        scroll;
+        scroll-sensitivity = <40>;
+        invert-scroll-y;
+        // If this ends up backwards instead, swap invert-scroll-y for
+        // invert-scroll-x.
     };
 };
 
