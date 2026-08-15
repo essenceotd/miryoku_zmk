@@ -57,16 +57,16 @@
         #address-cells = <1>;
         #size-cells = <0>;
 
-        glidepoint_split: glidepoint_split@0 {
+        trackpad_split: trackpad_split@0 {
             compatible = "zmk,input-split";
             reg = <0>;
         };
     };
 
-    glidepoint_listener: glidepoint_listener {
+    trackpad_listener: trackpad_listener {
         compatible = "zmk,input-listener";
         status = "disabled";
-        device = <&glidepoint_split>;
+        device = <&trackpad_split>;
         input-processors = <&zip_xy_scaler 250 100>;
         scroller {
             layers = <4 5 6>;
