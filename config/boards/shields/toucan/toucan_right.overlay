@@ -72,11 +72,9 @@
 
         // Raw axes come in swapped/rotated relative to the case: left was
         // tracking as up, up was tracking as right. switch-xy realigns the
-        // axes; invert-y corrects the resulting up/down direction.
+        // axes; left/right came out correct on its own, but up/down was
+        // still inverted with invert-y set, so it's left off.
         switch-xy;
-        invert-y;
-        // If left/right end up reversed instead after this, swap invert-y
-        // for invert-x.
     };
 };
 
