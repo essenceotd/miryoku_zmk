@@ -81,7 +81,7 @@
         // scrolling on its uncustomized factory default (too fast, wrong
         // direction) regardless of anything set elsewhere.
         scroll;
-        scroll-sensitivity = <40>;
+        scroll-sensitivity = <20>;
         invert-scroll-y;
         // If this ends up backwards instead, swap invert-scroll-y for
         // invert-scroll-x.
@@ -90,7 +90,7 @@
         // commits to a scroll gesture; unset, this was using the chip's
         // factory default, which required a large initial movement before
         // scrolling would start.
-        scroll-initial-distance = <10>;
+        scroll-initial-distance = <0>;
     };
 };
 
