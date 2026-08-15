@@ -29,46 +29,57 @@
 };
 
 &pinctrl {
-    spi0_default: spi0_default {
+    i2c0_default: i2c0_default {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
-                <NRF_PSEL(SPIM_MOSI, 1, 15)>,
-                <NRF_PSEL(SPIM_MISO, 1, 14)>;
+            psels = <NRF_PSEL(TWIM_SDA, 1, 13)>,
+                    <NRF_PSEL(TWIM_SCL, 1, 15)>;
+            bias-pull-up;
         };
     };
 
-     spi0_sleep: spi0_sleep {
+    i2c0_sleep: i2c0_sleep {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
-                    <NRF_PSEL(SPIM_MOSI, 1, 15)>,
-                    <NRF_PSEL(SPIM_MISO, 1, 14)>;
+            psels = <NRF_PSEL(TWIM_SDA, 1, 13)>,
+                    <NRF_PSEL(TWIM_SCL, 1, 15)>;
             low-power-enable;
         };
     };
-
 };
 
-&spi0 {
-   compatible = "nordic,nrf-spim";
+&i2c0 {
    status = "okay";
-   pinctrl-0 = <&spi0_default>;
-   pinctrl-1 = <&spi0_sleep>;
+   clock-frequency = <I2C_BITRATE_FAST>;
+   pinctrl-0 = <&i2c0_default>;
+   pinctrl-1 = <&i2c0_sleep>;
    pinctrl-names = "default", "sleep";
-   cs-gpios = <&gpio0 3 GPIO_ACTIVE_LOW>;
-   glidepoint:  glidepoint@0 {
-        compatible = "cirque,pinnacle";
-        reg = <0>;
-        spi-max-frequency = <1000000>;
+
+   trackpad: trackpad@74 {
+        compatible = "azoteq,tps43";
+        reg = <0x74>;
         status = "okay";
-        dr-gpios = <&gpio0 2 (GPIO_ACTIVE_HIGH)>;
-        sensitivity = "3x";
-        x-invert;
-	    //sleep;
+
+        rst-gpios = <&gpio1 14 GPIO_ACTIVE_HIGH>;
+        rdy-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+
+        enable-power-management;
+        report-rate-lp2 = <640>; // 640ms LP2 report rate: 55uA vs 174uA at the default 160ms
+        filter-settings = <0x0B>;
+        hold-time = <500>;
+        sensitivity = <100>;
+
+        single-tap;
+        press-and-hold;
+
+        // Axis orientation is chip-specific and unverified on this exact board;
+        // if the cursor tracks the wrong way after flashing, uncomment as needed:
+        // switch-xy;
+        // invert-x;
+        // invert-y;
     };
 };
 
-&glidepoint_split {
-    device = <&glidepoint>;
+&trackpad_split {
+    device = <&trackpad>;
 
     // Optional
     // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;

@@ -34,4 +34,4 @@
     };
 };
 
-/* No &glidepoint_listener — dongle has no trackpad */
+/* No &trackpad_listener — dongle has no trackpad */
