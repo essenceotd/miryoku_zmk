@@ -66,9 +66,12 @@
         input-processors = <&zip_xy_scaler 4 1>, <&ptr_accel>;
         scroller {
             layers = <4 5 6>;
+            // Scaler matches the native gesture's scroll-sensitivity of 10
+            // (i.e. 10/100), so both scroll paths scale the same raw sensor
+            // deltas identically.
             input-processors = <
                 &zip_xy_to_scroll_mapper
-                &zip_scroll_scaler 1 32
+                &zip_scroll_scaler 1 10
                 &zip_scroll_transform INPUT_TRANSFORM_Y_INVERT
             >;
         };
