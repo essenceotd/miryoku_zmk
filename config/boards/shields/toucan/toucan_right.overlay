@@ -70,6 +70,12 @@
         single-tap;
         press-and-hold;
 
+        // two-finger-tap is what makes the chip report the tap gesture;
+        // three-finger-tap then reports middle click instead of right when
+        // a third finger is down at that moment.
+        two-finger-tap;
+        three-finger-tap;
+
         // Raw axes come in swapped/rotated relative to the case: left was
         // tracking as up, up was tracking as right. switch-xy realigns the
         // axes; left/right came out correct on its own, but up/down was
