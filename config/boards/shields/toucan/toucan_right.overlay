@@ -62,7 +62,10 @@
         rdy-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
 
         enable-power-management;
-        report-rate-lp2 = <640>; // 640ms LP2 report rate: 55uA vs 174uA at the default 160ms
+        // report-rate-lp2 left at its ~160ms factory default rather than
+        // the more aggressive 640ms this was set to previously -- that
+        // traded noticeably higher wake-from-idle latency for a modest
+        // (55uA vs 174uA) power saving, which wasn't worth it.
         filter-settings = <0x0B>;
         hold-time = <500>;
         sensitivity = <100>;
