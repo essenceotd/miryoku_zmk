@@ -70,9 +70,10 @@
         single-tap;
         press-and-hold;
 
-        // two-finger-tap is what makes the chip report the tap gesture;
-        // three-finger-tap then reports middle click instead of right when
-        // a third finger is down at that moment.
+        // Right click on two fingers. Three-finger tap is middle click, but
+        // the chip suppresses its own tap gesture once a third finger lands,
+        // so the driver recognises that one in software from finger count,
+        // duration and movement instead.
         two-finger-tap;
         three-finger-tap;
 
