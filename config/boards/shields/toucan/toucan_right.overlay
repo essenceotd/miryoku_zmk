@@ -81,7 +81,7 @@
         // scrolling on its uncustomized factory default (too fast, wrong
         // direction) regardless of anything set elsewhere.
         scroll;
-        scroll-sensitivity = <20>;
+        scroll-sensitivity = <10>;
         invert-scroll-y;
         // If this ends up backwards instead, swap invert-scroll-y for
         // invert-scroll-x.
