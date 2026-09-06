@@ -44,7 +44,10 @@ on:
       modules:
         type: string
         default: '["default"]'
-  
+      merge_artifacts:
+        type: boolean
+        default: false
+
 
 jobs:
   main:
@@ -373,4 +376,21 @@ jobs:
         with:
           name: ${{ steps.main.outputs.run_name }}
           path: ${{ steps.main.outputs.artifact_dir }}
+
+  # Combine the per-shield artifacts into a single downloadable bundle.
+  # separate-directories keeps each build in its own subdirectory, since
+  # every build produces identically named zmk.uf2 / matrix.txt files.
+  merge:
+    if: ${{ always() && inputs.merge_artifacts }}
+    needs: main
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: merge
+        uses: actions/upload-artifact/merge@v4
+        with:
+          name: firmware
+          separate-directories: true
+          delete-merged: true
 
