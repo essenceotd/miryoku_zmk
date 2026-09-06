@@ -10,6 +10,6 @@ jobs:
     with:
       board: '["seeeduino_xiao_ble"]'
       shield: '["toucan_left rgbled_adapter toucan_pet","toucan_right rgbled_adapter","toucan_dongle prospector_adapter", "settings_reset"]'
-      modules: '["caksoylar/zmk-rgbled-widget/v0.3-branch essenceotd/zmk_driver_azoteq/fix-scroll-remainder-tracking carrefinho/prospector-zmk-module/main essenceotd/zmk-pointing-acceleration/main"]'
+      modules: '["caksoylar/zmk-rgbled-widget/v0.3-branch essenceotd/zmk_driver_azoteq/three-finger-tap-middle-click carrefinho/prospector-zmk-module/main essenceotd/zmk-pointing-acceleration/main"]'
       branches: '["zmkfirmware/zmk/v0.3"]'
       merge_artifacts: true
